@@ -91,6 +91,8 @@ var SegmentedRoundDisplay = function SegmentedRoundDisplay(_ref) {
   var totalFilledValue = segments.reduce(function (acc, actual) {
     return acc + actual.filled;
   }, 0);
+  svgHeight = svgHeight !== undefined ? svgHeight : (radius + filledArcWidth) * 2 + 2 * margin;
+  svgWidth = svgWidth !== undefined ? svgWidth : (radius + filledArcWidth) * 2 + 2 * margin;
   var createArcs = (0, _react.useCallback)(function () {
     var newArcs = segments.map(function (goal, index) {
       var newArc = {
@@ -254,9 +256,7 @@ SegmentedRoundDisplay.defaultProps = {
   displayValue: false,
   valueBoxColor: "#23318C",
   valueFontColor: "#FFFFFF",
-  margin: 35,
-  svgWidth: (radius + filledArcWidth) * 2 + 2 * margin,
-  svgHeight: (radius + filledArcWidth) * 2 + 2 * margin
+  margin: 35
 };
 var _default = SegmentedRoundDisplay;
 exports["default"] = _default;

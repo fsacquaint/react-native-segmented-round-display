@@ -41,6 +41,9 @@ const SegmentedRoundDisplay = ({
     0
   );
 
+  svgHeight = svgHeight !== undefined ? svgHeight : (radius + filledArcWidth) * 2 + 2 * margin
+  svgWidth = svgWidth !== undefined ? svgWidth : (radius + filledArcWidth) * 2 + 2 * margin
+
   const createArcs = useCallback(() => {
     const newArcs = segments.map((goal, index) => {
       const newArc = {
@@ -258,8 +261,6 @@ SegmentedRoundDisplay.defaultProps = {
   valueBoxColor: "#23318C",
   valueFontColor: "#FFFFFF",
   margin: 35,
-  svgWidth: (radius + filledArcWidth) * 2 + 2 * margin,
-  svgHeight: (radius + filledArcWidth) * 2 + 2 * margin,
 };
 
 export default SegmentedRoundDisplay;
