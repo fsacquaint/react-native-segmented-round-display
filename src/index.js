@@ -22,6 +22,9 @@ const SegmentedRoundDisplay = ({
   displayValue,
   valueBoxColor,
   valueFontColor,
+  margin,
+  svgWidth,
+  svgHeight
 }) => {
   const [arcs, setArcs] = useState([]);
 
@@ -32,10 +35,6 @@ const SegmentedRoundDisplay = ({
 
   const arcSize = (totalArcSize - totalSpacing) / totalArcs;
   const arcsStart = 90 - totalArcSize / 2;
-
-  const margin = 35;
-  const svgWidth = (radius + filledArcWidth) * 2 + 2 * margin;
-  const svgHeight = (radius + filledArcWidth) * 2 + 2 * margin;
 
   const totalFilledValue = segments.reduce(
     (acc, actual) => acc + actual.filled,
@@ -88,7 +87,7 @@ const SegmentedRoundDisplay = ({
       y: pos.y + 6,
     };
 
-    const formatedValue = formatValue
+    const formattedValue = formatValue
       ? formatValue(value || totalFilledValue)
       : parseInt(value || totalFilledValue, 10);
 
@@ -117,7 +116,7 @@ const SegmentedRoundDisplay = ({
           fill={valueFontColor}
           textAnchor="middle"
         >
-          {formatedValue}
+          {formattedValue}
         </Text>
       </G>
     );
@@ -238,6 +237,9 @@ SegmentedRoundDisplay.propTypes = {
   displayValue: PropTypes.bool,
   valueBoxColor: PropTypes.string,
   valueFontColor: PropTypes.string,
+  margin: PropTypes.number,
+  svgWidth: PropTypes.number,
+  svgHeight: PropTypes.number,
 };
 
 SegmentedRoundDisplay.defaultProps = {
@@ -255,6 +257,9 @@ SegmentedRoundDisplay.defaultProps = {
   displayValue: false,
   valueBoxColor: "#23318C",
   valueFontColor: "#FFFFFF",
+  margin: 35,
+  svgWidth: (radius + filledArcWidth) * 2 + 2 * margin,
+  svgHeight: (radius + filledArcWidth) * 2 + 2 * margin,
 };
 
 export default SegmentedRoundDisplay;
