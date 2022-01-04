@@ -128,6 +128,9 @@ export default App;
 | valueBoxColor  | string | #23318C  | color of box that holds the value if displayValue = true  |
 | valueFontColor  | string  | #FFFFFF  | color of text of value if displayValue = true  |
 | styles  | Styles object  | {}  | styles to be applied to container  |
+| margin  | int  | 35  | margin of the arc  |
+| svgWidth  | int  | (radius + filledArcWidth) * 2 + 2 * margin  | final svg width  |
+| svgHeight  | int  | (radius + filledArcWidth) * 2 + 2 * margin  | final svg height  |
 
 ## Run example
 
